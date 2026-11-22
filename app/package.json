@@ -1,0 +1,17 @@
+{
+  "name": "deepseek-chat",
+  "productName": "DeepSeek Chat",
+  "version": "1.0.0",
+  "description": "DeepSeek Chat 便携版（基于 deepseek-ai/chat-demo，MIT）",
+  "main": "main.js",
+  "author": "local build",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "electron": "45.4.1",
+    "electron-builder": "26.18.0"
+  },
+  "dependencies": {
+    "koffi": "^3.3.8"
+  }
+}

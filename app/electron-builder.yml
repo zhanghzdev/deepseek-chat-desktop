@@ -1,0 +1,42 @@
+appId: com.local.deepseetchat
+productName: DeepSeek Chat
+copyright: 前端基于 deepseek-ai/chat-demo (MIT License)
+
+directories:
+  output: ../dist-out
+  buildResources: build
+
+# 便携版：只产出解包目录，不做安装器
+win:
+  icon: build/icon.ico
+  # 让 electron-builder 跳过 rcedit/signtool（它会去 GitHub 下载工具包，国内会卡死）。
+  # 图标与版本信息由构建脚本调用本地 rcedit 写入，效果一致。
+  signAndEditExecutable: false
+  target:
+    - target: dir
+      arch:
+        - x64
+  requestedExecutionLevel: asInvoker
+  artifactName: DeepSeekChat-${version}-${arch}.${ext}
+
+# 只打包运行必需的文件，源码不进入成品
+files:
+  - main.js
+  - preload.js
+  - icon.ico
+  - web/**/*
+  - package.json
+  - node_modules/koffi/**/*
+  - node_modules/@koromix/**/*
+  - '!**/*.map'
+
+# 原生模块必须解包到 asar 之外才能被加载
+asarUnpack:
+  - '**/*.node'
+
+asar: true
+npmRebuild: false
+buildDependenciesFromSource: false
+
+# 便携版不需要下载 electron-builder 的额外工具链以外的内容
+compression: maximum
