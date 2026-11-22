@@ -1,0 +1,21 @@
+# 依赖与构建产物
+node_modules/
+dist/
+dist-out/
+app/web/
+
+# 运行时数据：这里有 API Key 和全部对话，绝不提交
+data/
+devdata/
+*.log
+secret.dat
+
+# 本地工具（体积大，可用 tools/get-rcedit.ps1 重新获取）
+tools/winCodeSign/
+tools/winCodeSign-*.7z
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
